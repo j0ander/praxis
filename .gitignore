@@ -1,0 +1,26 @@
+# Java y Maven
+target/
+*.class
+
+# Quinoa y frontend
+.quinoa/
+node_modules/
+dist/
+
+# Archivos de entorno
+.env
+.env.*
+!.env.example
+
+# Claves y archivos privados
+*.pem
+*.key
+
+# Configuración del editor
+.idea/
+.vscode/
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

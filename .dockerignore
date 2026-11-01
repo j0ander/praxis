@@ -1,0 +1,12 @@
+
+.git
+.gitignore
+target/
+.quinoa/
+node_modules/
+**/node_modules/
+**/dist/
+.env
+.env.*
+*.pem
+*.key
