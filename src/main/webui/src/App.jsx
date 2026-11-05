@@ -204,8 +204,8 @@ function Aplicacion() {
 
     setSesion(datos);
     if (datos.roles?.includes('ESTUDIANTE')
-        && !datos.roles.includes('COORDINADOR')
-        && !datos.roles.includes('ADMINISTRADOR')) {
+      && !datos.roles.includes('COORDINADOR')
+      && !datos.roles.includes('ADMINISTRADOR')) {
       setVista('ofertasEstudiante');
     } else {
       setVista('usuarios');
@@ -1548,13 +1548,17 @@ function Panel({ vista, api, setError, esCoordinador, esEstudiante }) {
           </h2>
 
           {/* CREAR USUARIO */}
+          {/* CREAR USUARIO */}
           {vista === 'usuarios' && (
             <>
+              <h3>Datos de acceso</h3>
               {campo('correo', 'Correo electrónico', 'email')}
               {campo('password', 'Contraseña', 'password')}
+
+              <h3>Datos personales</h3>
               {campo('nombres', 'Nombres')}
               {campo('apellidos', 'Apellidos')}
-              {campo('numeroDocumento', 'Número de documento')}
+
               <label>Tipo de documento</label>
               <select
                 required
@@ -1569,8 +1573,12 @@ function Panel({ vista, api, setError, esCoordinador, esEstudiante }) {
                 <option value="">Seleccione un tipo</option>
                 <option value="CEDULA">Cédula</option>
                 <option value="PASAPORTE">Pasaporte</option>
-              </select>              {campo('telefono', 'Teléfono')}
+              </select>
 
+              {campo('numeroDocumento', 'Número de documento')}
+              {campo('telefono', 'Teléfono', 'text', false)}
+
+              <h3>Asignación de roles</h3>
               <label>Roles</label>
 
               <select
