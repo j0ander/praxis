@@ -502,3 +502,1175 @@ button:disabled {
     align-self: flex-start;
   }
 }
+
+/* Acciones y asignación de alcance del prototipo */
+.acciones-usuario,
+.acciones-formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.formulario-alcance {
+  margin-top: 0;
+}
+
+.formulario-alcance > label.opcion-global {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.formulario-alcance > label.opcion-global input {
+  width: 17px;
+  height: 17px;
+}
+
+.formulario-alcance > select {
+  min-height: 130px;
+}
+
+.formulario .acciones-formulario {
+  grid-column: 1 / -1;
+}
+
+.formulario .acciones-formulario button {
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #24558d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.formulario .acciones-formulario button.secundario {
+  border: 1px solid #dce3ed;
+  background: #fff;
+  color: #42516a;
+}
+
+/* =========================================================
+   REVISIÓN DE OFERTAS POR COORDINACIÓN
+========================================================= */
+.detalle-oferta {
+  margin-top: 22px;
+}
+
+.detalle-oferta-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e7ebf1;
+}
+
+.detalle-oferta-cabecera small {
+  color: #748197;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.detalle-oferta-cabecera h2 {
+  margin: 7px 0;
+}
+
+.detalle-oferta h3 {
+  margin: 24px 0 12px;
+  color: #263d5d;
+}
+
+.detalle-oferta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 24px;
+}
+
+.detalle-oferta-grid p,
+.texto-detalle {
+  margin: 7px 0;
+  color: #536278;
+  overflow-wrap: anywhere;
+}
+
+.perfiles-revision {
+  display: grid;
+  gap: 14px;
+}
+
+.perfil-revision {
+  padding: 17px;
+  border: 1px solid #e1e7ef;
+  border-radius: 10px;
+  background: #f9fbfd;
+}
+
+.perfil-revision h4 {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 8px;
+  color: #243b5a;
+}
+
+.perfil-revision h4 span {
+  color: #536278;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.perfil-revision p {
+  color: #536278;
+}
+
+.perfil-revision ul {
+  margin-bottom: 0;
+  color: #536278;
+}
+
+.acciones-revision {
+  display: grid;
+  grid-template-columns: minmax(180px, auto) minmax(260px, 1fr);
+  align-items: start;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e7ebf1;
+}
+
+.form-rechazo {
+  display: grid;
+  gap: 9px;
+}
+
+.form-rechazo label {
+  color: #42516a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-rechazo textarea {
+  width: 100%;
+  min-height: 86px;
+  padding: 11px 12px;
+  border: 1px solid #dce2eb;
+  border-radius: 8px;
+  font: inherit;
+  resize: vertical;
+}
+
+.secundario {
+  padding: 10px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #33445d;
+  font-weight: 650;
+}
+
+.secundario:hover {
+  background: #f1f5f9;
+}
+
+@media (max-width: 760px) {
+  .detalle-oferta-cabecera,
+  .acciones-revision {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .detalle-oferta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   CONSULTA DE OFERTAS PUBLICADAS POR ESTUDIANTES
+========================================================= */
+.ofertas-estudiante {
+  display: grid;
+  gap: 18px;
+}
+
+.ofertas-intro h2 {
+  margin: 0 0 8px;
+  color: #243b5a;
+  font-size: 19px;
+}
+
+.ofertas-intro p {
+  margin: 0;
+  color: #607087;
+  font-size: 13px;
+}
+
+.ofertas-estudiante-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 18px;
+}
+
+.oferta-estudiante-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 21px;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 4px 18px #192c450d;
+}
+
+.oferta-estudiante-card h2 {
+  margin: 0;
+  color: #203653;
+  font-size: 19px;
+}
+
+.oferta-estudiante-card > p {
+  margin: 0;
+  color: #607087;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.oferta-estudiante-card .oferta-empresa {
+  color: #344b68;
+  font-weight: 700;
+}
+
+.oferta-estudiante-card-cabecera {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.oferta-etiqueta {
+  color: #7c8ba1;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.estado-plazo {
+  padding: 5px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.estado-plazo.vigente {
+  background: #e8f5ed;
+  color: #21643c;
+}
+
+.estado-plazo.cerrado {
+  background: #f1f2f4;
+  color: #687386;
+}
+
+.oferta-estudiante-datos {
+  display: grid;
+  width: 100%;
+  gap: 6px;
+  padding: 11px 0;
+  border-top: 1px solid #edf0f4;
+  border-bottom: 1px solid #edf0f4;
+  color: #536278;
+  font-size: 12px;
+}
+
+.compatibilidad {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.compatibilidad.compatible {
+  color: #21643c;
+}
+
+.compatibilidad.no-compatible {
+  color: #9a5a19;
+}
+
+.oferta-estudiante-card button {
+  margin-top: auto;
+}
+
+.detalle-oferta-estudiante {
+  margin-top: 0;
+}
+
+.detalle-oferta-estudiante .perfil-revision .compatibilidad {
+  margin: 10px 0;
+}
+
+@media (max-width: 760px) {
+  .ofertas-estudiante-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oferta-estudiante-card-cabecera {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   POSTULACIONES DEL ESTUDIANTE
+========================================================= */
+.mis-postulaciones {
+  display: grid;
+  gap: 12px;
+}
+
+.mis-postulaciones h2 {
+  margin: 0;
+  color: #243b5a;
+  font-size: 19px;
+}
+
+.mis-postulaciones > p {
+  margin: 0;
+  color: #607087;
+  font-size: 13px;
+}
+
+.tabla-postulaciones-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabla-postulaciones {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.tabla-postulaciones th,
+.tabla-postulaciones td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #edf0f4;
+  white-space: nowrap;
+}
+
+.tabla-postulaciones th {
+  color: #536278;
+  background: #f7f9fc;
+}
+
+.estado-postulacion {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  background: #eef2f7;
+  color: #42536b;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.estado-postulacion.estado-pendiente {
+  background: #fff4d6;
+  color: #805a00;
+}
+
+.estado-postulacion.estado-aceptada {
+  background: #e8f5ed;
+  color: #21643c;
+}
+
+.estado-postulacion.estado-rechazada,
+.estado-postulacion.estado-cancelada {
+  background: #fbeaea;
+  color: #963838;
+}
+
+.campo-mensaje-postulacion {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+  color: #344b68;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.campo-mensaje-postulacion textarea {
+  width: 100%;
+  min-height: 76px;
+  padding: 10px 12px;
+  border: 1px solid #d8e0ea;
+  border-radius: 8px;
+  color: #243b5a;
+  font: inherit;
+  resize: vertical;
+}
+
+.estado-postulacion-aviso {
+  margin: 12px 0 0;
+  color: #21643c;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.perfil-revision button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+
+/* =========================================================
+   IDENTIDAD VISUAL PRAXIS — ACTUALIZACIÓN PROFESIONAL
+   Mantiene intactos los flujos y permisos por rol.
+========================================================= */
+:root {
+  color-scheme: light;
+  --px-navy: #102744;
+  --px-navy-2: #17395f;
+  --px-blue: #2864a5;
+  --px-blue-soft: #eaf2fb;
+  --px-ink: #17263b;
+  --px-muted: #66768c;
+  --px-line: #e3eaf2;
+  --px-surface: #ffffff;
+  --px-bg: #f3f6fa;
+  --px-radius: 16px;
+  --px-shadow: 0 8px 28px rgba(22, 42, 69, .07);
+}
+
+html {
+  min-width: 320px;
+  background: var(--px-bg);
+}
+
+body {
+  min-height: 100vh;
+  color: var(--px-ink);
+  background:
+    radial-gradient(circle at 88% 0%, rgba(214, 229, 247, .34), transparent 28rem),
+    var(--px-bg);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  transition: color .18s ease, background .18s ease, border-color .18s ease,
+    box-shadow .18s ease, transform .18s ease;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(40, 100, 165, .2);
+  outline-offset: 2px;
+}
+
+/* Acceso */
+.login-fondo {
+  position: relative;
+  isolation: isolate;
+  padding: 28px;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(81, 139, 202, .28), transparent 36%),
+    radial-gradient(ellipse at 90% 85%, rgba(73, 111, 164, .25), transparent 32%),
+    linear-gradient(135deg, #0d1f36 0%, #17395f 58%, #214d78 100%);
+}
+
+.login {
+  width: min(100%, 460px);
+  padding: clamp(30px, 5vw, 46px);
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 22px;
+  box-shadow: 0 30px 90px rgba(4, 17, 34, .34);
+}
+
+.login .marca.oscuro {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--px-navy);
+  font-size: 30px;
+  letter-spacing: 2.5px;
+}
+
+.login .marca.oscuro span {
+  font-size: 11px;
+  letter-spacing: .25px;
+}
+
+.login h1 {
+  margin-top: 36px;
+  color: var(--px-ink);
+  font-size: 28px;
+  letter-spacing: -.7px;
+}
+
+.login > p {
+  margin-top: 0;
+  line-height: 1.65;
+}
+
+.login label {
+  gap: 9px;
+  margin: 20px 0;
+  color: #34465e;
+  font-size: 13px;
+}
+
+.login input,
+.formulario > input,
+.formulario > select,
+.form-rechazo textarea,
+.campo-mensaje-postulacion textarea {
+  min-height: 48px;
+  border: 1px solid #d8e1ec;
+  border-radius: 10px;
+  background: #fbfcfe;
+  color: var(--px-ink);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.login input {
+  padding: 13px 15px;
+}
+
+.login input:focus,
+.formulario input:focus,
+.formulario select:focus,
+.form-rechazo textarea:focus,
+.campo-mensaje-postulacion textarea:focus {
+  border-color: #6a98c8;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(40, 100, 165, .10);
+  outline: none;
+}
+
+/* Estructura general */
+.layout {
+  min-height: 100vh;
+  grid-template-columns: 272px minmax(0, 1fr);
+}
+
+.layout aside {
+  z-index: 5;
+  position: sticky;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 30px 18px 22px;
+  background:
+    radial-gradient(circle at 0 0, rgba(67, 112, 164, .22), transparent 19rem),
+    linear-gradient(180deg, #102744 0%, #0d2038 100%);
+  box-shadow: 8px 0 30px rgba(16, 39, 68, .08);
+}
+
+.layout aside .marca {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 12px 22px;
+  border-bottom: 1px solid rgba(220, 233, 248, .13);
+  font-size: 29px;
+  letter-spacing: 2.4px;
+}
+
+.layout aside .marca::before {
+  content: "";
+  width: 34px;
+  height: 4px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: #77b4ed;
+}
+
+.layout aside .marca span {
+  margin-top: 1px;
+  color: #a9bdd4;
+  font-size: 11px;
+  letter-spacing: .45px;
+}
+
+.layout nav {
+  gap: 6px;
+  margin-top: 25px;
+}
+
+.layout nav button,
+.salir {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #c0cede;
+  font-size: 13px;
+  font-weight: 560;
+  letter-spacing: .05px;
+}
+
+.layout nav button::before {
+  display: inline-grid;
+  flex: 0 0 23px;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(255,255,255,.07);
+  color: #b7cce3;
+  font-size: 12px;
+  font-weight: 800;
+  content: "•";
+}
+
+.layout nav button[data-vista="usuarios"]::before { content: "U"; }
+.layout nav button[data-vista="facultades"]::before { content: "F"; }
+.layout nav button[data-vista="carreras"]::before { content: "C"; }
+.layout nav button[data-vista="periodos"]::before { content: "P"; }
+.layout nav button[data-vista="auditoria"]::before { content: "A"; }
+.layout nav button[data-vista="empresas"]::before { content: "E"; }
+.layout nav button[data-vista="convenios"]::before { content: "CV"; font-size: 9px; }
+.layout nav button[data-vista="estudiantes"]::before { content: "ES"; font-size: 9px; }
+.layout nav button[data-vista="representantes"]::before { content: "R"; }
+.layout nav button[data-vista="ofertas"]::before { content: "O"; }
+.layout nav button[data-vista="revisionOfertas"]::before { content: "RO"; font-size: 9px; }
+.layout nav button[data-vista="revisionPostulaciones"]::before { content: "RP"; font-size: 9px; }
+.layout nav button[data-vista="asignacionDocente"]::before { content: "D"; }
+.layout nav button[data-vista="ofertasEstudiante"]::before { content: "OD"; font-size: 9px; }
+
+.layout nav button:hover {
+  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.075);
+  color: #fff;
+}
+
+.layout nav button:hover::before,
+.layout nav button.seleccionado::before {
+  background: rgba(119, 180, 237, .18);
+  color: #d7ebff;
+}
+
+.layout nav button.seleccionado {
+  border-color: rgba(132, 184, 235, .2);
+  background: linear-gradient(100deg, rgba(62, 119, 179, .38), rgba(62, 119, 179, .13));
+  color: #fff;
+  font-weight: 720;
+  box-shadow: inset 3px 0 #82baf0;
+}
+
+.salir {
+  min-height: 46px;
+  margin-top: auto;
+  border-color: rgba(255,255,255,.10);
+  background: rgba(255,255,255,.035);
+  color: #d1dceb;
+}
+
+.salir::before {
+  content: "↪";
+  display: inline-grid;
+  width: 23px;
+  height: 23px;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(255,255,255,.07);
+  font-size: 16px;
+}
+
+.salir:hover {
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.10);
+  color: #fff;
+}
+
+/* Área de trabajo y cabecera */
+.contenido {
+  min-width: 0;
+  padding: 34px clamp(22px, 4vw, 64px) 52px;
+}
+
+.contenido > header {
+  min-height: 92px;
+  margin-bottom: 28px;
+  padding: 0 0 22px;
+  border-bottom: 1px solid rgba(213, 223, 235, .9);
+}
+
+.contenido header small {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #53769b;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.65px;
+}
+
+.contenido header small::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4d8bc6;
+  content: "";
+}
+
+.contenido header h1 {
+  margin: 7px 0 0;
+  color: var(--px-navy);
+  font-size: clamp(25px, 2.4vw, 32px);
+  font-weight: 780;
+  letter-spacing: -.85px;
+  line-height: 1.2;
+}
+
+.usuario-sesion {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 11px;
+  max-width: min(100%, 330px);
+  padding: 9px 14px 9px 9px;
+  border: 1px solid #e0e8f1;
+  border-radius: 14px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 3px 12px rgba(28, 54, 83, .04);
+  color: #33465e;
+}
+
+.usuario-avatar {
+  display: grid;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #dcecff, #c4dcf5);
+  color: #1d548b;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.usuario-datos {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.usuario-datos strong {
+  overflow: hidden;
+  color: #263d58;
+  font-size: 12px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.usuario-datos small {
+  overflow: hidden;
+  color: #718198 !important;
+  font-size: 10px !important;
+  font-weight: 650 !important;
+  letter-spacing: .25px !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contenido > .error {
+  margin: -8px 0 20px;
+}
+
+/* Superficies, tablas y formularios */
+.panel,
+.formulario {
+  border: 1px solid var(--px-line);
+  border-radius: var(--px-radius);
+  background: var(--px-surface);
+  box-shadow: var(--px-shadow);
+}
+
+.panel {
+  margin-bottom: 24px;
+  padding: clamp(18px, 2.2vw, 28px);
+}
+
+.panel table {
+  min-width: 760px;
+  font-size: 13px;
+}
+
+.panel thead {
+  background: #f4f7fb;
+}
+
+.panel th {
+  padding: 15px 16px;
+  color: #60738c;
+  font-size: 10px;
+  letter-spacing: .75px;
+}
+
+.panel td {
+  padding: 16px;
+  color: #34465d;
+  line-height: 1.5;
+}
+
+.panel tbody tr {
+  transition: background .15s ease;
+}
+
+.panel tbody tr:hover {
+  background: #f6f9fd;
+}
+
+.panel td button {
+  min-height: 34px;
+  padding: 8px 13px;
+  border-color: #d7e2ef;
+  border-radius: 8px;
+  color: #285987;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.panel td button:hover {
+  border-color: #a9c5e2;
+  background: #edf5fd;
+}
+
+.formulario {
+  max-width: 980px;
+  gap: 19px 22px;
+  margin-bottom: 30px;
+  padding: clamp(21px, 2.6vw, 32px);
+}
+
+.formulario h2 {
+  margin-bottom: 5px;
+  color: var(--px-navy);
+  font-size: 20px;
+  font-weight: 760;
+  letter-spacing: -.3px;
+}
+
+.formulario > input {
+  min-height: 48px;
+  padding: 12px 15px;
+}
+
+.formulario > select {
+  padding: 12px;
+  background: #fbfcfe;
+}
+
+.formulario > label {
+  color: #40536b;
+  font-size: 13px;
+}
+
+.formulario > button,
+.formulario .acciones-formulario button,
+.primario {
+  min-height: 44px;
+  padding: 11px 19px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #2d6eae, #24588f);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 750;
+  box-shadow: 0 4px 10px rgba(36, 88, 143, .13);
+}
+
+.formulario > button:hover:not(:disabled),
+.formulario .acciones-formulario button:hover:not(:disabled),
+.primario:hover:not(:disabled) {
+  background: linear-gradient(135deg, #245f9a, #194875);
+  box-shadow: 0 6px 14px rgba(36, 88, 143, .2);
+  transform: translateY(-1px);
+}
+
+.secundario {
+  min-height: 40px;
+  border-color: #d7e1ec;
+  border-radius: 9px;
+  background: #fff;
+  color: #3c536d;
+  font-size: 13px;
+}
+
+.secundario:hover {
+  border-color: #b6c9de;
+  background: #f4f8fc;
+}
+
+/* Estados, tarjetas y secciones de trabajo */
+.detalle-oferta-cabecera {
+  padding-bottom: 20px;
+  border-color: var(--px-line);
+}
+
+.detalle-oferta-cabecera h2,
+.ofertas-intro h2,
+.mis-postulaciones h2 {
+  color: var(--px-navy);
+  font-weight: 760;
+  letter-spacing: -.35px;
+}
+
+.detalle-oferta h3 {
+  color: #315b84;
+  font-size: 15px;
+  font-weight: 760;
+}
+
+.perfil-revision {
+  padding: 19px;
+  border-color: #e1e9f2;
+  border-radius: 12px;
+  background: #f8fafd;
+}
+
+.perfil-revision h4 {
+  color: #233e5d;
+  font-size: 14px;
+}
+
+.acciones-revision {
+  border-color: var(--px-line);
+}
+
+.form-rechazo textarea,
+.campo-mensaje-postulacion textarea {
+  padding: 12px 14px;
+  line-height: 1.55;
+}
+
+.oferta-estudiante-card {
+  min-height: 100%;
+  padding: 23px;
+  border-color: #e1e9f2;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(22, 42, 69, .055);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.oferta-estudiante-card:hover {
+  transform: translateY(-3px);
+  border-color: #c9d9ea;
+  box-shadow: 0 12px 28px rgba(22, 42, 69, .09);
+}
+
+.oferta-estudiante-card h2 {
+  color: var(--px-navy);
+  font-size: 19px;
+  font-weight: 780;
+  line-height: 1.3;
+}
+
+.oferta-estudiante-card > p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.oferta-estudiante-datos {
+  gap: 8px;
+  padding: 14px 0;
+  font-size: 12px;
+}
+
+.estado-plazo,
+.estado-postulacion {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15px;
+}
+
+.tabla-postulaciones {
+  font-size: 13px;
+}
+
+.tabla-postulaciones th,
+.tabla-postulaciones td {
+  padding: 13px 12px;
+}
+
+.tabla-postulaciones th {
+  background: #f4f7fb;
+  color: #60738c;
+  font-size: 10px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+}
+
+/* Mensajes */
+.error {
+  padding: 13px 16px;
+  border-color: #f1caca;
+  border-radius: 10px;
+  background: #fff4f3;
+  color: #a33131;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 235px minmax(0, 1fr);
+  }
+
+  .contenido {
+    padding: 28px 24px 42px;
+  }
+}
+
+@media (max-width: 760px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .layout aside {
+    position: relative;
+    top: auto;
+    height: auto;
+    overflow: visible;
+    padding: 18px 16px 14px;
+  }
+
+  .layout aside .marca {
+    padding: 0 7px 14px;
+    font-size: 25px;
+  }
+
+  .layout aside .marca::before {
+    width: 28px;
+    margin-bottom: 7px;
+  }
+
+  .layout nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    overflow-x: auto;
+    margin-top: 14px;
+    padding: 2px 1px 8px;
+    scrollbar-width: thin;
+  }
+
+  .layout nav button {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .layout nav button::before {
+    flex-basis: 21px;
+    width: 21px;
+    height: 21px;
+  }
+
+  .salir {
+    min-height: 39px;
+    margin-top: 8px;
+    padding: 7px 10px;
+    align-self: flex-start;
+  }
+
+  .contenido {
+    padding: 24px 16px 36px;
+  }
+
+  .contenido > header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    min-height: auto;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+  }
+
+  .usuario-sesion {
+    max-width: 100%;
+  }
+
+  .panel {
+    padding: 16px;
+    border-radius: 13px;
+  }
+
+  .panel table {
+    min-width: 720px;
+  }
+
+  .formulario {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .formulario h2,
+  .formulario > label,
+  .formulario > select,
+  .formulario > button,
+  .formulario .acciones-formulario {
+    grid-column: 1;
+  }
+
+  .detalle-oferta-cabecera,
+  .acciones-revision {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detalle-oferta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .login {
+    padding: 27px 22px;
+  }
+
+  .contenido {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .contenido header h1 {
+    font-size: 24px;
+  }
+
+  .panel {
+    padding: 13px;
+  }
+
+  .usuario-sesion {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

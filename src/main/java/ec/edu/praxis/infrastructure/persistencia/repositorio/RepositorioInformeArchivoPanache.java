@@ -6,7 +6,6 @@ import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
 
-/** Adaptador Panache para informe_archivo; el dominio solo conoce el contrato. */
 @ApplicationScoped
 public class RepositorioInformeArchivoPanache implements RepositorioInformeArchivo, PanacheRepositoryBase<InformeArchivo, Long> {
     @Override public Optional<InformeArchivo> buscarPorId(Long id) { return findByIdOptional(id); }

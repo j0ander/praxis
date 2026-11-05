@@ -14,4 +14,5 @@ public class RepositorioOfertaPerfilCarreraPanache implements RepositorioOfertaP
     @Override public Optional<OfertaPerfilCarrera> buscarPorId(OfertaPerfilCarreraId id) { return findByIdOptional(id); }
     @Override public void guardar(OfertaPerfilCarrera entidad) { persist(entidad); }
     @Override public void eliminar(OfertaPerfilCarrera entidad) { delete(entidad); }
+    @Override public java.util.List<OfertaPerfilCarrera> listarPorPerfil(Long perfilId) { return find("perfil_id", perfilId).list(); }
 }

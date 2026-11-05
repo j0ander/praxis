@@ -5,11 +5,12 @@ import ec.edu.praxis.domain.repositorio.RepositorioOfertaPerfilRequisito;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
+import java.util.List;
 
-/** Adaptador Panache para oferta_perfil_requisito; el dominio solo conoce el contrato. */
 @ApplicationScoped
 public class RepositorioOfertaPerfilRequisitoPanache implements RepositorioOfertaPerfilRequisito, PanacheRepositoryBase<OfertaPerfilRequisito, Long> {
     @Override public Optional<OfertaPerfilRequisito> buscarPorId(Long id) { return findByIdOptional(id); }
     @Override public void guardar(OfertaPerfilRequisito entidad) { persist(entidad); }
     @Override public void eliminar(OfertaPerfilRequisito entidad) { delete(entidad); }
+    @Override public List<OfertaPerfilRequisito> listarPorPerfil(Long perfilId) { return find("perfil_id", perfilId).list(); }
 }

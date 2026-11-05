@@ -71,6 +71,9 @@ public class Practica {
     @Column(name = "creado_por")
     public Long creado_por;
 
+    @Column(name = "postulacion_id")
+    public Long postulacion_id;
+
     @Column(name = "version")
     public Long version;
 

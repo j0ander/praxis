@@ -5,6 +5,8 @@ import ec.edu.praxis.domain.repositorio.RepositorioTipoPractica;
 import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 import jakarta.enterprise.context.ApplicationScoped;
 import java.util.Optional;
+import java.util.List;
+import io.quarkus.panache.common.Sort;
 
 /** Adaptador Panache para tipo_practica; el dominio solo conoce el contrato. */
 @ApplicationScoped
@@ -12,4 +14,5 @@ public class RepositorioTipoPracticaPanache implements RepositorioTipoPractica, 
     @Override public Optional<TipoPractica> buscarPorId(Long id) { return findByIdOptional(id); }
     @Override public void guardar(TipoPractica entidad) { persist(entidad); }
     @Override public void eliminar(TipoPractica entidad) { delete(entidad); }
+    @Override public List<TipoPractica> listarTodos() { return findAll(Sort.ascending("nombre")).list(); }
 }

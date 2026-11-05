@@ -24,6 +24,8 @@ public class AdministrarSeguridadService {
     @Inject
     RepositorioUsuarioCarrera usuariosCarreras;
     @Inject
+    RepositorioDocente docentes;
+    @Inject
     RepositorioFacultad facultadesRepositorio;
     @Inject
     RepositorioCarrera carrerasRepositorio;
@@ -52,6 +54,14 @@ public class AdministrarSeguridadService {
         usuario.alcance_global = false;
         usuario.debe_cambiar_password = true;
         usuario.intentos_fallidos = 0;
+
+        // La tabla usuario exige estas fechas; Hibernate no aplica el DEFAULT de
+        // PostgreSQL
+        // cuando incluye explícitamente NULL en el INSERT.
+        OffsetDateTime ahora = OffsetDateTime.now();
+        usuario.created_at = ahora;
+        usuario.updated_at = ahora;
+
         usuarios.guardar(usuario);
         registrar(actor, "CREAR", "usuario", usuario.id);
         return usuario.id;
@@ -61,6 +71,7 @@ public class AdministrarSeguridadService {
     public void estadoUsuario(long id, boolean activo, long actor) {
         Usuario usuario = buscarUsuario(id);
         usuario.activo = activo;
+        usuario.updated_at = OffsetDateTime.now();
         usuarios.guardar(usuario);
         registrar(actor, activo ? "ACTIVAR" : "DESACTIVAR", "usuario", id);
     }
@@ -79,7 +90,15 @@ public class AdministrarSeguridadService {
             UsuarioRol relacion = new UsuarioRol();
             relacion.usuario_id = id;
             relacion.rol_id = rol.id;
+            relacion.created_at = OffsetDateTime.now();
             usuariosRoles.guardar(relacion);
+        }
+
+        // Un usuario con rol DOCENTE debe tener también su perfil en la tabla docente.
+        // El alta de usuario y la asignación de roles son operaciones separadas en la UI;
+        // por eso el perfil se crea al asignar el rol.
+        if (rolesNuevos.stream().anyMatch(r -> "DOCENTE".equals(r.codigo))) {
+            asegurarPerfilDocente(id);
         }
         registrar(actor, "ASIGNAR_ROLES", "usuario", id);
     }
@@ -98,11 +117,27 @@ public class AdministrarSeguridadService {
             UsuarioCarrera relacion = new UsuarioCarrera();
             relacion.usuario_id = id;
             relacion.carrera_id = carrera.id;
+            relacion.created_at = OffsetDateTime.now();
             usuariosCarreras.guardar(relacion);
         }
         usuario.alcance_global = global;
+        usuario.updated_at = OffsetDateTime.now();
         usuarios.guardar(usuario);
         registrar(actor, "ASIGNAR_CARRERAS", "usuario", id);
+    }
+
+
+    private void asegurarPerfilDocente(long usuarioId) {
+        boolean existe = docentes.listarTodos().stream()
+                .anyMatch(d -> Objects.equals(d.usuario_id, usuarioId));
+        if (existe) return;
+
+        OffsetDateTime ahora = OffsetDateTime.now();
+        Docente docente = new Docente();
+        docente.usuario_id = usuarioId;
+        docente.created_at = ahora;
+        docente.updated_at = ahora;
+        docentes.guardar(docente);
     }
 
     @Transactional
@@ -115,6 +150,7 @@ public class AdministrarSeguridadService {
             throw new NoAutenticadoException();
         usuario.hash_password = BcryptUtil.bcryptHash(nueva);
         usuario.debe_cambiar_password = false;
+        usuario.updated_at = OffsetDateTime.now();
         usuarios.guardar(usuario);
         registrar(id, "CAMBIAR_PASSWORD", "usuario", id);
     }
@@ -128,6 +164,7 @@ public class AdministrarSeguridadService {
         usuario.debe_cambiar_password = true;
         usuario.intentos_fallidos = 0;
         usuario.bloqueado_hasta = null;
+        usuario.updated_at = OffsetDateTime.now();
         usuarios.guardar(usuario);
         registrar(actor, "RESTABLECER_PASSWORD", "usuario", id);
     }
@@ -220,6 +257,8 @@ public class AdministrarSeguridadService {
             fila.put("alcance_global", usuario.alcance_global);
             fila.put("debe_cambiar_password", usuario.debe_cambiar_password);
             fila.put("roles", codigos);
+            fila.put("carreras", usuariosCarreras.listarPorUsuario(usuario.id).stream()
+                    .map(relacion -> relacion.carrera_id).toList());
             resultado.add(fila);
         }
         return resultado;
