@@ -81,6 +81,8 @@ public class InicializarAdministradorService {
         UsuarioRol asignacion = new UsuarioRol();
         asignacion.usuario_id = usuario.id;
         asignacion.rol_id = rolAdmin.id;
+        asignacion.created_at = ahora;
+
         usuariosRoles.guardar(asignacion);
         Auditoria registro = new Auditoria();
         registro.usuario_id = usuario.id;
