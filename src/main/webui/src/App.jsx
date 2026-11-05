@@ -1548,60 +1548,66 @@ function Panel({ vista, api, setError, esCoordinador, esEstudiante }) {
           </h2>
 
           {/* CREAR USUARIO */}
-          {/* CREAR USUARIO */}
           {vista === 'usuarios' && (
             <>
-              <h3>Datos de acceso</h3>
-              {campo('correo', 'Correo electrónico', 'email')}
-              {campo('password', 'Contraseña', 'password')}
+              <div className="grupo-formulario">
+                <h3>Datos de acceso</h3>
 
-              <h3>Datos personales</h3>
-              {campo('nombres', 'Nombres')}
-              {campo('apellidos', 'Apellidos')}
+                {campo('correo', 'Correo electrónico', 'email')}
+                {campo('password', 'Contraseña', 'password')}
+              </div>
 
-              <label>Tipo de documento</label>
-              <select
-                required
-                value={form.tipoDocumento || ''}
-                onChange={(e) =>
-                  setForm((anterior) => ({
-                    ...anterior,
-                    tipoDocumento: e.target.value
-                  }))
-                }
-              >
-                <option value="">Seleccione un tipo</option>
-                <option value="CEDULA">Cédula</option>
-                <option value="PASAPORTE">Pasaporte</option>
-              </select>
+              <div className="grupo-formulario">
+                <h3>Datos personales</h3>
 
-              {campo('numeroDocumento', 'Número de documento')}
-              {campo('telefono', 'Teléfono', 'text', false)}
+                <div className="campos-documento">
+                  {campo('nombres', 'Nombres')}
+                  {campo('apellidos', 'Apellidos')}
 
-              <h3>Asignación de roles</h3>
-              <label>Roles</label>
-
-              <select
-                multiple
-                value={rolesElegidos}
-                onChange={(e) => {
-                  const seleccionados = Array.from(
-                    e.target.selectedOptions,
-                    (opcion) => opcion.value
-                  );
-
-                  setRolesElegidos(seleccionados);
-                }}
-              >
-                {roles.map((rol) => (
-                  <option
-                    key={rol.id}
-                    value={rol.codigo}
+                  <label>Tipo de documento</label>
+                  <select
+                    required
+                    value={form.tipoDocumento || ''}
+                    onChange={(e) =>
+                      setForm((anterior) => ({
+                        ...anterior,
+                        tipoDocumento: e.target.value
+                      }))
+                    }
                   >
-                    {rol.nombre}
-                  </option>
-                ))}
-              </select>
+                    <option value="">Seleccione un tipo</option>
+                    <option value="CEDULA">Cédula</option>
+                    <option value="PASAPORTE">Pasaporte</option>
+                  </select>
+
+                  {campo('numeroDocumento', 'Número de documento')}
+                  {campo('telefono', 'Teléfono')}
+                </div>
+              </div>
+
+              <div className="grupo-formulario">
+                <h3>Asignación de roles</h3>
+
+                <label>Roles</label>
+                <select
+                  multiple
+                  value={rolesElegidos}
+                  onChange={(e) => {
+                    const seleccionados = Array.from(
+                      e.target.selectedOptions,
+                      (opcion) => opcion.value
+                    );
+
+                    setRolesElegidos(seleccionados);
+                  }}
+                >
+                  {roles.map((rol) => (
+                    <option key={rol.id} value={rol.codigo}>
+                      {rol.nombre}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </>
           )}
 
